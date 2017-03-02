@@ -5,13 +5,12 @@ using UnityEngine;
 public class paddle : MonoBehaviour {
 
     Rigidbody2D rigidBody;
-    float speed = 15;
+    public float speed = 15;
 
     void Start () {
         rigidBody = GetComponent<Rigidbody2D>();
     }
 	
-	// Update is called once per frame
 	void Update () {
         float x = Input.GetAxisRaw("Horizontal");
         x = x * speed;
