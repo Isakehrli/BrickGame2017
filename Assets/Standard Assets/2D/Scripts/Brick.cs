@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Brick : MonoBehaviour {
-    int hits = 2;
-	// Use this for initialization
+
+    public int hits = 1;
+
 	void Start () {
 		
 	}
@@ -12,7 +13,13 @@ public class Brick : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D coll)
     {
         hits = hits - 1;
-        if(hits == 0)
-        gameObject.SetActive(false);
+        //could be: hits -= 1;
+        Debug.Log(hits);
+
+        if (hits == 0) {
+            gameObject.SetActive(false);
+            FindObjectOfType<ball>().YouBrokeABrick();
+        }
+
     }
 }
